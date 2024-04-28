@@ -1,0 +1,31 @@
+﻿<h1>Details Page</h1>
+
+@model BankBranch
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Bank Id</th>
+            <th>Location Name</th>
+            <th>Location URL</th>
+            <th>Branch Manager</th>
+            <th>Branch Name</th>
+            <th>Employee Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+            <tr>
+            <th>@Model.Id</th>
+            <th>@Model.LocationName</th>
+            <th>@Model.LocationURL</th>
+            <th>@Model.BranchManager</th>
+            <th>@Model.BranchName</th>
+            <th>@Model.EmployeeCount</th>
+            </tr>
+        
+    </tbody>
+</table>
+
+<a asp-action="Add Employee" asp-controller="Bank" asp-route="Id" class="btn btn-primary">Add Employee</a>
