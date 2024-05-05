@@ -117,13 +117,32 @@ namespace Bank_Branches_Individual_Mini_Project.Controllers
         [HttpPost]
         public IActionResult Edit(int id, EditFormModel form) 
         {
+            var context = _context;
+
+            var locationName = form.LocationName;
+            var locationURL = form.LocationURL;
+            var branchManager = form.BranchManager;
+            var employeeCount = form.EmployeeCount;
             if (ModelState.IsValid)
             {
 
-
+                context.BankBranches.Add(new BankBranch
+                {
+                    LocationName = locationName,
+                    LocationURL = locationURL,
+                    BranchManager = branchManager,
+                    EmployeeCount = employeeCount
+                });
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            {
+                return View(form);
             }
 
-            return View(form);
+
+          
+            return RedirectToAction("Index");
         }
         
 
