@@ -1,28 +1,18 @@
-﻿@model List<BankBranch>
-
-
-
-
-<table class="table">
-    <thead>
-            <td>Bank Id</td>
-            <td>Location Name</td>
-            <td>Location URL</td>
-            <td>Branch Manager</td>
-            <td>Branch Name</td>
-            <td>Employee Count</td>
-    </thead>
-    <tbody>
-        @foreach (var e in Model)
-        {
-            <tr>
-                <td>@e.Id</td>
-                <td><a asp-controller="Bank" asp-action="Details" asp-route-id="@e.Id">Details</a></td>
-                <td>@e.LocationURL</td>
-                <td>@e.BranchManager</td>
-                <td>@e.BranchName</td>
-                <td>@e.EmployeeCount</td>
-            </tr>
-        }
-    </tbody>
-</table>
+﻿@model BankDashboardViewModel
+<div class="row">
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Total Branches</h5>
+                <p class="card-text">Display branch count here</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Employee</h5>
+                    <p class="card-text">Display branch count here</p>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -32,8 +32,16 @@ namespace Bank_Branches_Individual_Mini_Project.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var branches = _context.BankBranches.ToList();
-            return View(branches);
+            var viewModel = new BankDashboardViewModel();
+            viewModel.BranchList = _context.BankBranches.Include(r => r.Employees).ToList();
+            viewModel.TotalBranches = _context.BankBranches.Count();
+            viewModel.TotalEmployees = _context.Employees.Count();
+            viewModel.BranchWithMostEmployees = _context
+                .BankBranches
+                .OrderByDescending(b => b.Employees.Count)
+                .FirstOrDefault();
+
+            return View(viewModel);
 
 
         }
